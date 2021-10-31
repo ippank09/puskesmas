@@ -81,7 +81,7 @@ include_once('../header.php');
  })
 
     function edit(){
-        var conf = confirm('Yakin akan menghapus data?');
+        var conf = confirm('Yakin akan mengedit data?');
         if (conf) {
         document.proses.action = 'edit.php';
         document.proses.submit();

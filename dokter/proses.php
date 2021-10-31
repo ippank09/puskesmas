@@ -26,8 +26,17 @@ require "../assets/libs/vendor/autoload.php";
   }
 
  		
- }elseif ($_POST['edit']) {
-   
- 	  
+ }elseif (isset($_POST['edit'])) {
+  for ($i=0; $i < count($_POST['id']) ; $i++) { 
+    $id = $_POST['id'][$i];
+    $nama = $_POST['nama'][$i];
+    $alamat = $_POST['alamat'][$i];
+    $jabatan = $_POST['jabatan'][$i];
+
+   mysqli_query($con, "UPDATE  tb_dokter SET nm_dokter='$nama', alamat='$alamat', jabatan='$jabatan' WHERE id_dokter='$id'") or die(mysqli_connect_error($con));
+  }
+ 
+    echo "<script>alert('data berhasil diedit!'); window.location='data.php'</script>";
+ 
  }
 
