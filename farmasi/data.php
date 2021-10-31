@@ -6,7 +6,7 @@ ob_start();
  <div class="box">
 	<h1>Data Obat</h1> 	
 	<h4>
-		<small>Data</small>
+		<small>Data Stok Obat</small>
 		<div class="pull-right">
 			<a href="" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-refresh">Refresh</i></a>
 			<a href="add.php" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-plus">Tambah Data</i></a>
