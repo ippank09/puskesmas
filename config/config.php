@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
 }
 
 function base_url($url=null){
-	$base_url="https://herokuapp.com";
+	$base_url="http://localhost/puskesmas";
 	if ($url!=null) {
 		return $base_url."/".$url;
 	}else{
