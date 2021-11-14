@@ -13,7 +13,7 @@ include_once('../header.php');
     </h4>
     <form method="post" name="proses">
         <div class="table-responsive">
-            <table class="table table-stripped table-bordered table-hover" id="pasien">
+            <table class="table table-stripped table-bordered table-hover" id="dokter">
                 <thead>
                     <tr>
                         
@@ -51,6 +51,7 @@ include_once('../header.php');
         </div>
     </form>
         <div class="box pull-right">
+            <br>
             <button class="btn btn-warning btn-sm" onclick="edit()"><i class="glyphicon glyphicon-edit">Edit</i></button>
              <button class="btn btn-danger btn-sm" onclick="hapus()"><i class="glyphicon glyphicon-trash"> Hapus</i></button>
         </div>
@@ -59,6 +60,9 @@ include_once('../header.php');
  </div>
  <script type="text/javascript">
  $(document).ready(function(){
+
+    $('#dokter').DataTable();
+
  	$("#select_all").on('click', function(){
  		if (this.checked) {
  			$('.check').each(function(){
