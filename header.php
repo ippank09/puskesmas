@@ -58,6 +58,9 @@ if (isset($_SESSION['admin'])|| isset($_SESSION['user'])) {?>
 			                <li>
 			                    <a href="<?=base_url('farmasi/data.php')?>"><i class="fas fa-prescription-bottle-alt"></i> Apotik/Farmasi</i></a>
 			                </li>
+							<li>
+			                    <a href="<?=base_url('bayar/data.php')?>"><i class="fas fa-money-bill"> Pembayaran</i></a>
+			                </li>
 			                <li>
 			                    <a href="<?=base_url('dokter/data.php')?>"><i class="fas fa-user-md"> Data Dokter</i></a>
 			                </li>

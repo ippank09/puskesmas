@@ -3,7 +3,7 @@ include_once('../header.php');
  ?>
 
  <div class="box">
- 	<h1>Data Rekam Medis</h1>
+ 	<h1>Data Pembayaran</h1>
     <h4>
         <small>Data</small>
         <div class="pull-right">
@@ -18,15 +18,10 @@ include_once('../header.php');
                     <tr>
                         
                         <th>No</th>
-                        <th>No Rekam Medis</th>
+                        <th>No Invoice</th>
+                        <th>Tanggal</th>
                         <th>Nama Pasien</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Golongan Darah</th>
-                        <th>Keluhan</th>
-                        <th>Dokter</th>
-                        <th>Diagnosa</th>
-                        <th>Resep</th>
-                        <th>Tgl Periksa</th>
+                        <th>Keterangan</th>
                         <th align="center">
                         	<i class="glyphicon glyphicon-cog"></i>
                         </th>
@@ -36,27 +31,30 @@ include_once('../header.php');
                 <tbody>
                     <?php 
                        $no=1;
-                       $query = "SELECT * FROM tb_rekammedis";
+                       $query = "SELECT * FROM tb_bayar";
                        $sql = mysqli_query($con,$query) or die(mysqli_connect_error($con));
                        
                        while ($data = mysqli_fetch_array($sql)) {?>          
                        <tr>     
-                           <td><?=$no++ ?></td>
-                           <td><?=$data['id_rm'] ?></td>
-                           <td><?=$data['id_pasien'] ?></td>
-                           <td><?=$data['jenis_kelamin']?></td>
-                           <td><?=$data['gol_darah']?></td>
-                           <td><?=$data['keluhan']?></td>
-                           <td><?=$data['diagnosa'] ?></td>
-                           <td><?=$data['resep']?></td>
-                           <td><?=$data['id_dokter']?></td>
-                           <td><?=$data['tgl_periksa'] ?></td>
-                           <td width="130px">
-                               <a href="edit.php?id=<?=$data['id_rm'] ?>" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i>Edit</a>
-                               <a href="hapus.php?id=<?=$data['id_rm']?>" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i>Hapus</a>
-                       
+                           <td rowspan="2" width="20px"><?=$no++ ?></td>
+                           <td rowspan="2"><?=$data['no_bayar'] ?></td>
+                           <td rowspan="2"><?=$data['tgl_bayar'] ?></td>
+                           <td rowspan="2"><?=$data['nm_pasien']?></td>
+                           
+                           <td>Obat<?=$data['nm_obat'] ?></td>
+                           <td rowspan="2" width="180px">
+                           <a href="edit.php?id=<?=$data['id_pegawai']?>" class="btn btn-xs btn-success">Bayar</a>
+                               <a href="edit.php?id=<?=$data['id_pegawai']?>" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit">Edit</i></a>
+                               <a href="" class="btn btn-danger btn-xs" onclick="hapus()"><i class="glyphicon glyphicon-remove">Hapus</i></a>
                            </td>
-                       
+                           <tr>
+                           <td>Dokter</td>
+                           
+                           </tr>                          
+                           
+                           
+                           
+                           
                      </tr>
                      <?php } ?>
                 </tbody>
@@ -64,9 +62,7 @@ include_once('../header.php');
         </div>
     </form>
         <div class="box pull-right">
-            <br>
-            <button class="btn btn-xs btn-warning " ><i class="glyphicon glyphicon-edit">Edit</i></button>
-             <button class="btn btn-xs btn-danger" ><i class="glyphicon glyphicon-trash"> Hapus</i></button>
+           
         </div>
 </div>
 
